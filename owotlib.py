@@ -14,7 +14,7 @@ owot = 'wss://ourworldoftext.com/ws/'
 ws = create_connection(owot)
 
 def write(tx, ty, cx, cy, text):
-    time.sleep(1/25)
+    time.sleep(1/25)#make it faster if you want but you could get ratelimited
     global editid
     editid += 1
     ws.send(json.dumps(
@@ -65,6 +65,7 @@ def gen_batch(char, tx, ty):
             row = [tx, ty, x, y, timestamp, char, editid, color]
             wipe_batch.append(row)
 
+"""#uncomment this to get a clock at the owot spawn
 while True:
     try:
         now = datetime.now()
@@ -87,7 +88,7 @@ while True:
     except:
         time.sleep(5)
         print('error')
-
+"""
 bunny = [
     [-2, -1, 7, 13, timestamp, '(', editid, color],
     [-2, -1, 7, 14, timestamp, '_', editid, color],
