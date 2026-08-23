@@ -27,11 +27,19 @@ def write(tx, ty, cx, cy, text):
 ))
 
 def writestr(tx, ty, cx, cy, string):
+    basecx = cx
     for chars in list(string):
-        cx += 1
+        if not cx == 0:
+            cx += 1
+        if chars == '@':
+            cy += 1
+            cx = basecx
         if cx >= 16:
             tx += 1
             cx = 0
+        if cy >= 8:
+            ty += 1
+            cy = 0
         write(ty, tx, cy, cx, chars)
 
 def batch_write(batch):
@@ -135,6 +143,8 @@ n2 = [
     [0, 0, 2, 2, timestamp, '▀', editid, color],
     [0, 0, 2, 3, timestamp, '▀', editid, color]
 ]
+
+
 
 """
 while True:#animation
