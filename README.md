@@ -6,15 +6,15 @@ commit to this somehow (i dont know how to invite
 people on my github repo to contribute)
 i will maybe make it a librairy if i learn how to.
 
-##usage
+## usage
 
-###write()
+### write()
 ```python
 write(tx, ty, cx, cy, char)
 ```
 here tx stands for tile x and cx stands for char x.
 
-###writestr()
+### writestr()
 ```python
 writestr(tx, ty, cx, cy, string)
 ```
