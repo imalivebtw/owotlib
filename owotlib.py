@@ -14,7 +14,7 @@ owot = 'wss://ourworldoftext.com/ws/'
 ws = create_connection(owot)
 
 def write(tx, ty, cx, cy, text):
-    time.sleep(1/25)#make it faster if you want but you could get ratelimited
+    time.sleep(1/100)#make it faster if you want but you could get ratelimited
     global editid
     editid += 1
     ws.send(json.dumps(
@@ -29,11 +29,11 @@ def write(tx, ty, cx, cy, text):
 def writestr(tx, ty, cx, cy, string):
     basecx = cx
     for chars in list(string):
-        if not cx == 0:
-            cx += 1
+        cx += 1
         if chars == '@':
             cy += 1
             cx = basecx
+            chars = ''
         if cx >= 16:
             tx += 1
             cx = 0
@@ -96,89 +96,4 @@ while True:
     except:
         time.sleep(5)
         print('error')
-"""
-bunny = [
-    [-2, -1, 7, 13, timestamp, '(', editid, color],
-    [-2, -1, 7, 14, timestamp, '_', editid, color],
-    [-2, -1, 7, 15, timestamp, '_', editid, color],
-    [-2, 0, 7, 0, timestamp, '_', editid, color],
-    [-2, 0, 7, 1, timestamp, ')', editid, color],
-    [-2, -1, 6, 13, timestamp, '(', editid, color],
-    [-2, -1, 6, 14, timestamp, '0', editid, color],
-    [-2, -1, 6, 15, timestamp, '-', editid, color],
-    [-2, 0, 6, 0, timestamp, '0', editid, color],
-    [-2, 0, 6, 1, timestamp, ')', editid, color],
-    [-2, -1, 5, 13, timestamp, '(', editid, color],
-    [-2, -1, 5, 14, timestamp, '\\', editid, color],
-    [-2, -1, 5, 15, timestamp, '(', editid, color],
-    [-2, 0, 5, 0, timestamp, '\\', editid, color]
-]
-
-n1 = [
-    [0, 0, 0, 0, timestamp, '█', editid, color],
-    [0, 0, 0, 1, timestamp, '█', editid, color],
-    [0, 0, 0, 2, timestamp, '█', editid, color],
-    [0, 0, 0, 3, timestamp, '█', editid, color],
-    [0, 0, 1, 0, timestamp, '█', editid, color],
-    [0, 0, 1, 1, timestamp, '█', editid, color],
-    [0, 0, 1, 2, timestamp, '█', editid, color],
-    [0, 0, 1, 3, timestamp, '█', editid, color],
-    [0, 0, 2, 0, timestamp, '█', editid, color],
-    [0, 0, 2, 1, timestamp, '█', editid, color],
-    [0, 0, 2, 2, timestamp, '█', editid, color],
-    [0, 0, 2, 3, timestamp, '█', editid, color]
-]
-
-n2 = [
-    [0, 0, 0, 0, timestamp, '▀', editid, color],
-    [0, 0, 0, 1, timestamp, '▀', editid, color],
-    [0, 0, 0, 2, timestamp, '▀', editid, color],
-    [0, 0, 0, 3, timestamp, '▀', editid, color],
-    [0, 0, 1, 0, timestamp, '▀', editid, color],
-    [0, 0, 1, 1, timestamp, '▀', editid, color],
-    [0, 0, 1, 2, timestamp, '▀', editid, color],
-    [0, 0, 1, 3, timestamp, '▀', editid, color],
-    [0, 0, 2, 0, timestamp, '▀', editid, color],
-    [0, 0, 2, 1, timestamp, '▀', editid, color],
-    [0, 0, 2, 2, timestamp, '▀', editid, color],
-    [0, 0, 2, 3, timestamp, '▀', editid, color]
-]
-
-
-
-"""
-while True:#animation
-  time.sleep(3/5)
-  batch_write(n1)
-  time.sleep(3/5)
-  batch_write(n2)
-"""
-
-"""
-while True:#this code is now obsolete
-    write(0,0,0,0,'▚')
-    time.sleep(1/20)
-    write(0,0,1,0,'▚')
-    time.sleep(1/20)
-    write(0,0,2,0,'▚')
-    time.sleep(1/20)
-    write(0,0,3,0,'▚')
-    time.sleep(1/20)
-    write(0,0,4,0,'▚')
-    time.sleep(1/20)
-    write(0,0,5,0,'▚')
-    time.sleep(1/20)
-
-    write(0,0,0,0,'▞')
-    time.sleep(1/20)
-    write(0,0,1,0,'▞')
-    time.sleep(1/20)
-    write(0,0,2,0,'▞')
-    time.sleep(1/20)
-    write(0,0,3,0,'▞')
-    time.sleep(1/20)
-    write(0,0,4,0,'▞')
-    time.sleep(1/20)
-    write(0,0,5,0,'▞')
-    time.sleep(1/20)
 """
