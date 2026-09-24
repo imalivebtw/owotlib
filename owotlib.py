@@ -14,7 +14,7 @@ owot = 'wss://ourworldoftext.com/ws/'
 ws = create_connection(owot)
 
 def write(tx, ty, cx, cy, text):
-    time.sleep(1/100)#make it faster if you want but you could get ratelimited
+    time.sleep(1/10)#this might get you ratelimited.
     global editid
     editid += 1
     ws.send(json.dumps(
