@@ -56,12 +56,21 @@ def writestr(tx, ty, cx, cy, string):
     send_cache()
 
 
-"""#template
+"""#templates
                 {
   "kind": "write",
   "edits": [
     [tx, ty, cx, cy, timestamp, text, editid, color]
   ]
+}
+{
+    "kind": "link", 
+    "type": "url", 
+    "data": {
+		"tileY": ty, "tileX": tx,
+		"charY": cy, "charX": cx,
+		"url": url
+    }
 }
 """
 
