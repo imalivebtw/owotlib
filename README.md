@@ -8,14 +8,4 @@ i will maybe make it a librairy if i learn how to.
 
 ## usage
 
-### write()
-```python
-write(tx, ty, cx, cy, char)
-```
-here tx stands for tile x and cx stands for char x.
-
-### writestr()
-```python
-writestr(tx, ty, cx, cy, string)
-```
-this function automatically jumps from one tile to another and makes regenerating text easy.
+GO READ THE CODE
