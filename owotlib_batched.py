@@ -74,7 +74,7 @@ def writestr(tx, ty, cx, cy, string):
 }
 """
 
-"""
+
 while True:
     try:
         now = datetime.utcnow()
@@ -94,5 +94,5 @@ while True:
     except ConnectionResetError:
         time.sleep(5)
         print('ConnectionResetError')
-"""
+
 
